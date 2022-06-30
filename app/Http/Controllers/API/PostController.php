@@ -13,4 +13,10 @@ class PostController extends Controller
         $posts = Post::with(['tags', 'category', 'user'])->paginate();
         return $posts;
     }
+
+    public function show()
+    {
+        $post = Post::with(['tags', 'category', 'user'])->where(['slug',$slug])->first();
+        return $post;
+    }
 }
